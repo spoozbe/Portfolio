@@ -1,0 +1,4 @@
+D:\Projects\Euler\Euler1\Euler1\Euler1\bin\Debug\Euler1.exe
+D:\Projects\Euler\Euler1\Euler1\Euler1\bin\Debug\Euler1.pdb
+D:\Projects\Euler\Euler1\Euler1\Euler1\obj\x86\Debug\Euler1.exe
+D:\Projects\Euler\Euler1\Euler1\Euler1\obj\x86\Debug\Euler1.pdb

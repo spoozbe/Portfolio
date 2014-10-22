@@ -1,0 +1,6 @@
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler2\bin\Debug\Euler2.exe
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler2\bin\Debug\Euler2.pdb
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler2\obj\x86\Debug\Euler2.exe
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler2\obj\x86\Debug\Euler2.pdb
+D:\Projects\Euler\Euler2\Euler2\Euler2\obj\x86\Debug\Euler2.exe
+D:\Projects\Euler\Euler2\Euler2\Euler2\obj\x86\Debug\Euler2.pdb
