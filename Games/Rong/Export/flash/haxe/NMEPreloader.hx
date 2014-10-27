@@ -1,5 +1,5 @@
-import nme.display.Sprite;
-import nme.events.Event;
+import openfl.display.Sprite;
+import openfl.events.Event;
 
 
 class NMEPreloader extends Sprite
@@ -51,19 +51,39 @@ class NMEPreloader extends Sprite
 	
 	public function getBackgroundColor():Int
 	{
-		return 0xffffff;
+		return 16777215;
 	}
 	
 	
 	public function getHeight():Float
 	{
-		return 400;
+		var height = 400;
+		
+		if (height > 0) {
+			
+			return height;
+			
+		} else {
+			
+			return flash.Lib.current.stage.stageHeight;
+			
+		}
 	}
 	
 	
 	public function getWidth():Float
 	{
-		return 800;
+		var width = 800;
+		
+		if (width > 0) {
+			
+			return width;
+			
+		} else {
+			
+			return flash.Lib.current.stage.stageWidth;
+			
+		}
 	}
 	
 	

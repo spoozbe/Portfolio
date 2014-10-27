@@ -1,193 +1,251 @@
-import com.soul.gaming.Rong;
-import nme.Assets;
-import nme.events.Event;
+import lime.Assets;
+#if !macro
 
 
 class ApplicationMain {
 	
-	static var mPreloader:NMEPreloader;
-
-	public static function main () {
+	
+	public static var config:lime.app.Config;
+	public static var preloader:openfl.display.Preloader;
+	
+	private static var app:lime.app.Application;
+	
+	
+	public static function create ():Void {
 		
-		var call_real = true;
+		app = new openfl.display.Application ();
+		app.create (config);
+		
+		var display = new NMEPreloader ();
+		
+		preloader = new openfl.display.Preloader (display);
+		preloader.onComplete = init;
+		preloader.create (config);
+		
+		#if js
+		var urls = [];
+		var types = [];
 		
 		
-		var loaded:Int = nme.Lib.current.loaderInfo.bytesLoaded;
-		var total:Int = nme.Lib.current.loaderInfo.bytesTotal;
+		urls.push ("assets/background.png");
+		types.push (AssetType.IMAGE);
 		
-		nme.Lib.current.stage.align = nme.display.StageAlign.TOP_LEFT;
-		nme.Lib.current.stage.scaleMode = nme.display.StageScaleMode.NO_SCALE;
 		
-		if (loaded < total || true) /* Always wait for event */ {
+		urls.push ("assets/ball.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/blue.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/paddle.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		
+		preloader.load (urls, types);
+		#end
+		
+		var result = app.exec ();
+		
+		#if sys
+		Sys.exit (result);
+		#end
+		
+	}
+	
+	
+	public static function init ():Void {
+		
+		var loaded = 0;
+		var total = 0;
+		var library_onLoad = function (_) {
 			
-			call_real = false;
-			mPreloader = new NMEPreloader();
-			nme.Lib.current.addChild(mPreloader);
-			mPreloader.onInit();
-			mPreloader.onUpdate(loaded,total);
-			nme.Lib.current.addEventListener (nme.events.Event.ENTER_FRAME, onEnter);
+			loaded++;
+			
+			if (loaded == total) {
+				
+				start ();
+				
+			}
 			
 		}
 		
 		
 		
-		haxe.Log.trace = flashTrace; // null
+		if (loaded == total) {
+			
+			start ();
+			
+		}
 		
-
-		if (call_real)
-			begin ();
 	}
-
-	
-	private static function flashTrace( v : Dynamic, ?pos : haxe.PosInfos ) {
-		var className = pos.className.substr(pos.className.lastIndexOf('.') + 1);
-		var message = className+"::"+pos.methodName+":"+pos.lineNumber+": " + v;
-
-        if (flash.external.ExternalInterface.available)
-			flash.external.ExternalInterface.call("console.log", message);
-		else untyped flash.Boot.__trace(v, pos);
-    }
 	
 	
-	private static function begin () {
+	public static function main () {
+		
+		config = {
+			
+			antialiasing: Std.int (0),
+			background: Std.int (16777215),
+			borderless: false,
+			depthBuffer: false,
+			fps: Std.int (30),
+			fullscreen: false,
+			height: Std.int (400),
+			orientation: "",
+			resizable: true,
+			stencilBuffer: false,
+			title: "Rong",
+			vsync: false,
+			width: Std.int (800),
+			
+		}
+		
+		#if js
+		#if munit
+		flash.Lib.embed (null, 800, 400, "FFFFFF");
+		#end
+		#else
+		create ();
+		#end
+		
+	}
+	
+	
+	public static function start ():Void {
+		
+		openfl.Lib.current.stage.align = openfl.display.StageAlign.TOP_LEFT;
+		openfl.Lib.current.stage.scaleMode = openfl.display.StageScaleMode.NO_SCALE;
 		
 		var hasMain = false;
 		
-		for (methodName in Type.getClassFields(com.soul.gaming.Rong))
-		{
-			if (methodName == "main")
-			{
+		for (methodName in Type.getClassFields (Main)) {
+			
+			if (methodName == "main") {
+				
 				hasMain = true;
 				break;
+				
 			}
-		}
-		
-		if (hasMain)
-		{
-			Reflect.callMethod (com.soul.gaming.Rong, Reflect.field (com.soul.gaming.Rong, "main"), []);
-		}
-		else
-		{
-			nme.Lib.current.addChild(cast (Type.createInstance(com.soul.gaming.Rong, []), nme.display.DisplayObject));	
-		}
-		
-	}
-
-	static function onEnter (_) {
-		
-		var loaded:Int = nme.Lib.current.loaderInfo.bytesLoaded;
-		var total:Int = nme.Lib.current.loaderInfo.bytesTotal;
-		mPreloader.onUpdate(loaded,total);
-		
-		if (loaded >= total) {
-			
-			nme.Lib.current.removeEventListener(nme.events.Event.ENTER_FRAME, onEnter);
-			mPreloader.addEventListener (Event.COMPLETE, preloader_onComplete);
-			mPreloader.onLoaded();
 			
 		}
 		
+		if (hasMain) {
+			
+			Reflect.callMethod (Main, Reflect.field (Main, "main"), []);
+			
+		} else {
+			
+			var instance:DocumentClass = Type.createInstance (DocumentClass, []);
+			
+			if (Std.is (instance, openfl.display.DisplayObject)) {
+				
+				openfl.Lib.current.addChild (cast instance);
+				
+			}
+			
+		}
+		
+		openfl.Lib.current.stage.dispatchEvent (new openfl.events.Event (openfl.events.Event.RESIZE, false, false));
+		
 	}
+	
+	
+	#if neko
+	@:noCompletion public static function __init__ () {
+		
+		var loader = new neko.vm.Loader (untyped $loader);
+		loader.addPath (haxe.io.Path.directory (Sys.executablePath ()));
+		loader.addPath ("./");
+		loader.addPath ("@executable_path/");
+		
+	}
+	#end
+	
+	
+}
 
-	public static function getAsset (inName:String):Dynamic {
+
+#if flash @:build(DocumentClass.buildFlash())
+#else @:build(DocumentClass.build()) #end
+@:keep class DocumentClass extends Main {}
+
+
+#else
+
+
+import haxe.macro.Context;
+import haxe.macro.Expr;
+
+
+class DocumentClass {
+	
+	
+	macro public static function build ():Array<Field> {
 		
+		var classType = Context.getLocalClass ().get ();
+		var searchTypes = classType;
 		
-		if (inName=="assets/arrow.png")
-			 
-            return Assets.getBitmapData ("assets/arrow.png");
-         
-		
-		if (inName=="assets/background.png")
-			 
-            return Assets.getBitmapData ("assets/background.png");
-         
-		
-		if (inName=="assets/backgroundMenu.png")
-			 
-            return Assets.getBitmapData ("assets/backgroundMenu.png");
-         
-		
-		if (inName=="assets/ball.png")
-			 
-            return Assets.getBitmapData ("assets/ball.png");
-         
-		
-		if (inName=="assets/cow.jpg")
-			 
-            return Assets.getBitmapData ("assets/cow.jpg");
-         
-		
-		if (inName=="assets/easy.png")
-			 
-            return Assets.getBitmapData ("assets/easy.png");
-         
-		
-		if (inName=="assets/hard.png")
-			 
-            return Assets.getBitmapData ("assets/hard.png");
-         
-		
-		if (inName=="assets/medium.png")
-			 
-            return Assets.getBitmapData ("assets/medium.png");
-         
-		
-		if (inName=="assets/omg.png")
-			 
-            return Assets.getBitmapData ("assets/omg.png");
-         
-		
-		if (inName=="assets/paddle.png")
-			 
-            return Assets.getBitmapData ("assets/paddle.png");
-         
-		
-		if (inName=="assets/sound/Blip_Select.wav")
-			 
-            return Assets.getSound ("assets/sound/Blip_Select.wav");
-         
-		
-		if (inName=="assets/subtitle.png")
-			 
-            return Assets.getBitmapData ("assets/subtitle.png");
-         
-		
-		if (inName=="assets/title.png")
-			 
-            return Assets.getBitmapData ("assets/title.png");
-         
-		
+		while (searchTypes.superClass != null) {
+			
+			if (searchTypes.pack.length == 2 && searchTypes.pack[1] == "display" && searchTypes.name == "DisplayObject") {
+				
+				var fields = Context.getBuildFields ();
+				
+				var method = macro {
+					
+					this.stage = flash.Lib.current.stage;
+					super ();
+					dispatchEvent (new openfl.events.Event (openfl.events.Event.ADDED_TO_STAGE, false, false));
+					
+				}
+				
+				fields.push ({ name: "new", access: [ APublic ], kind: FFun({ args: [], expr: method, params: [], ret: macro :Void }), pos: Context.currentPos () });
+				
+				return fields;
+				
+			}
+			
+			searchTypes = searchTypes.superClass.t.get ();
+			
+		}
 		
 		return null;
 		
 	}
 	
 	
-	private static function preloader_onComplete (event:Event):Void {
+	macro public static function buildFlash ():Array<Field> {
 		
-		mPreloader.removeEventListener (Event.COMPLETE, preloader_onComplete);
+		var classType = Context.getLocalClass ().get ();
+		var searchTypes = classType;
 		
-		nme.Lib.current.removeChild(mPreloader);
-		mPreloader = null;
+		while (searchTypes.superClass != null) {
+			
+			if (searchTypes.pack.length == 2 && searchTypes.pack[1] == "display" && searchTypes.name == "DisplayObject") {
+				
+				var fields = Context.getBuildFields ();
+				var method = macro {
+					return flash.Lib.current.stage;
+				}
+				
+				fields.push ({ name: "get_stage", access: [ APrivate ], meta: [ { name: ":getter", params: [ macro stage ], pos: Context.currentPos() } ], kind: FFun({ args: [], expr: method, params: [], ret: macro :flash.display.Stage }), pos: Context.currentPos() });
+				return fields;
+				
+			}
+			
+			searchTypes = searchTypes.superClass.t.get ();
+			
+		}
 		
-		begin ();
+		return null;
 		
 	}
+	
 	
 }
 
 
-class NME_assets_arrow_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_background_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_backgroundmenu_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_ball_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_cow_jpg extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_easy_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_hard_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_medium_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_omg_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_paddle_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_sound_blip_select_wav extends nme.media.Sound { }
-class NME_assets_subtitle_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_assets_title_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-
+#end
