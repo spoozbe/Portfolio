@@ -17,7 +17,6 @@ HX_DECLARE_CLASS3(openfl,_v2,display,InteractiveObject)
 HX_DECLARE_CLASS3(openfl,_v2,display,Sprite)
 HX_DECLARE_CLASS3(openfl,_v2,events,EventDispatcher)
 HX_DECLARE_CLASS3(openfl,_v2,events,IEventDispatcher)
-HX_DECLARE_CLASS3(openfl,_v2,geom,Rectangle)
 
 
 class HXCPP_CLASS_ATTRIBUTES  Ball_obj : public ::GameObject_obj{
@@ -43,8 +42,10 @@ class HXCPP_CLASS_ATTRIBUTES  Ball_obj : public ::GameObject_obj{
 		::String __ToString() const { return HX_CSTRING("Ball"); }
 
 		::Vector2 velocity;
-		::openfl::_v2::geom::Rectangle rect;
 		virtual Void update( int delta);
+
+		virtual Void resetPos( );
+		Dynamic resetPos_dyn();
 
 };
 

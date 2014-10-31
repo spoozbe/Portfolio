@@ -7,7 +7,9 @@
 
 #include <openfl/_v2/display/Sprite.h>
 HX_DECLARE_CLASS0(Game)
-HX_DECLARE_CLASS0(List)
+HX_DECLARE_CLASS0(IMap)
+HX_DECLARE_CLASS0(Scene)
+HX_DECLARE_CLASS2(haxe,ds,StringMap)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObject)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObjectContainer)
 HX_DECLARE_CLASS3(openfl,_v2,display,Graphics)
@@ -44,11 +46,15 @@ class HXCPP_CLASS_ATTRIBUTES  Game_obj : public ::openfl::_v2::display::Sprite_o
 
 		::openfl::_v2::utils::Timer _fixedTimer;
 		::openfl::_v2::display::Graphics gameGraphics;
-		::List objects;
+		::haxe::ds::StringMap scenes;
+		::Scene activeScene;
 		int delta;
 		int lastTime;
-		virtual Void _update( ::openfl::_v2::events::Event e);
-		Dynamic _update_dyn();
+		virtual Void update( ::openfl::_v2::events::Event e);
+		Dynamic update_dyn();
+
+		virtual Void swapScene( ::String name);
+		Dynamic swapScene_dyn();
 
 };
 

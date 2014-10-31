@@ -69,19 +69,21 @@ HX_STACK_ARG(game,"game")
 	HX_STACK_LINE(17)
 	::openfl::_v2::geom::Rectangle _g1 = ::openfl::_v2::geom::Rectangle_obj::__new((int)0,(int)0,(int)800,(int)400);		HX_STACK_VAR(_g1,"_g1");
 	HX_STACK_LINE(17)
-	::GameObject _g2 = ::GameObject_obj::__new(game,HX_CSTRING("assets/background.png"),_g1,null());		HX_STACK_VAR(_g2,"_g2");
+	::Vector2 _g2 = ::Vector2_obj::__new((int)0,(int)0);		HX_STACK_VAR(_g2,"_g2");
 	HX_STACK_LINE(17)
-	this->background = _g2;
+	::GameObject _g3 = ::GameObject_obj::__new(game,HX_CSTRING("assets/background.png"),_g1,_g2);		HX_STACK_VAR(_g3,"_g3");
+	HX_STACK_LINE(17)
+	this->background = _g3;
 	HX_STACK_LINE(18)
 	this->objects->add(this->background);
 	HX_STACK_LINE(19)
-	::Paddle _g3 = ::Paddle_obj::__new(game,this->ball,null());		HX_STACK_VAR(_g3,"_g3");
+	::Paddle _g4 = ::Paddle_obj::__new(game,this->ball,null());		HX_STACK_VAR(_g4,"_g4");
 	HX_STACK_LINE(19)
-	this->objects->add(_g3);
-	HX_STACK_LINE(20)
-	::Paddle _g4 = ::Paddle_obj::__new(game,this->ball,true);		HX_STACK_VAR(_g4,"_g4");
-	HX_STACK_LINE(20)
 	this->objects->add(_g4);
+	HX_STACK_LINE(20)
+	::Paddle _g5 = ::Paddle_obj::__new(game,this->ball,true);		HX_STACK_VAR(_g5,"_g5");
+	HX_STACK_LINE(20)
+	this->objects->add(_g5);
 	HX_STACK_LINE(21)
 	this->objects->add(this->ball);
 }
@@ -101,6 +103,28 @@ Dynamic GameScene_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< GameScene_obj > result = new GameScene_obj();
 	result->__construct(inArgs[0]);
 	return result;}
+
+Void GameScene_obj::swapTo( ){
+{
+		HX_STACK_FRAME("GameScene","swapTo",0x8c903d02,"GameScene.swapTo","GameScene.hx",27,0xc47e7f24)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(27)
+		this->super::swapTo();
+	}
+return null();
+}
+
+
+Void GameScene_obj::swapAway( ){
+{
+		HX_STACK_FRAME("GameScene","swapAway",0xf2525ab5,"GameScene.swapAway","GameScene.hx",32,0xc47e7f24)
+		HX_STACK_THIS(this)
+		HX_STACK_LINE(32)
+		this->super::swapAway();
+	}
+return null();
+}
+
 
 
 GameScene_obj::GameScene_obj()
@@ -128,6 +152,12 @@ Dynamic GameScene_obj::__Field(const ::String &inName,bool inCallProp)
 	switch(inName.length) {
 	case 4:
 		if (HX_FIELD_EQ(inName,"ball") ) { return ball; }
+		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"swapTo") ) { return swapTo_dyn(); }
+		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"swapAway") ) { return swapAway_dyn(); }
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"background") ) { return background; }
@@ -168,6 +198,8 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 static ::String sMemberFields[] = {
 	HX_CSTRING("background"),
 	HX_CSTRING("ball"),
+	HX_CSTRING("swapTo"),
+	HX_CSTRING("swapAway"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

@@ -13,11 +13,9 @@ import Date;
 class Ball extends GameObject
 {
 	public var velocity : Vector2;
-	public var rect : Rectangle;
 	public function new(game : Game) 
 	{
 		super(game, "assets/ball.png", new Rectangle(0, 0, 10, 10), new Vector2(390, 190));
-		rect = new Rectangle(pos.x, pos.y, 10, 10);
 		//init velocity
 		var rando : Random = new Random();
 		//velocity = new Vector2(rando.float() * 2, rando.float() * 2);
@@ -31,6 +29,11 @@ class Ball extends GameObject
 		if (pos.y < 10 || pos.y > 385)//bouncing off da walls
 		{
 			velocity.y *= -1;
+		}
+		
+		if (pos.x < 0 || pos.x > 800)
+		{
+			resetPos();
 		}
 	
 		/*
@@ -46,6 +49,11 @@ class Ball extends GameObject
 		rect.x = pos.x;
 		rect.y = pos.y;
 		
+	}
+	
+	public function resetPos() : Void
+	{
+		pos = new Vector2(390, 190);
 	}
 	
 }

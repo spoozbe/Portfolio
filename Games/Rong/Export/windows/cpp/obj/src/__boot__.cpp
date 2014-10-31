@@ -3,6 +3,7 @@
 #include <sys/io/FileOutput.h>
 #include <sys/FileSystem.h>
 #include <openfl/utils/Endian.h>
+#include <openfl/utils/Dictionary.h>
 #include <openfl/system/SecurityDomain.h>
 #include <openfl/system/LoaderContext.h>
 #include <openfl/system/ApplicationDomain.h>
@@ -137,9 +138,12 @@
 #include <StringBuf.h>
 #include <Reflect.h>
 #include <Paddle.h>
+#include <MenuScene.h>
 #include <IMap.h>
 #include <List.h>
 #include <Lambda.h>
+#include <GameScene.h>
+#include <Scene.h>
 #include <DefaultAssetLibrary.h>
 #include <openfl/_v2/AssetLibrary.h>
 #include <Date.h>
@@ -176,6 +180,7 @@ hx::RegisterResources( hx::GetResources() );
 ::sys::io::FileOutput_obj::__register();
 ::sys::FileSystem_obj::__register();
 ::openfl::utils::Endian_obj::__register();
+::openfl::utils::Dictionary_obj::__register();
 ::openfl::system::SecurityDomain_obj::__register();
 ::openfl::system::LoaderContext_obj::__register();
 ::openfl::system::ApplicationDomain_obj::__register();
@@ -310,9 +315,12 @@ hx::RegisterResources( hx::GetResources() );
 ::StringBuf_obj::__register();
 ::Reflect_obj::__register();
 ::Paddle_obj::__register();
+::MenuScene_obj::__register();
 ::IMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
+::GameScene_obj::__register();
+::Scene_obj::__register();
 ::DefaultAssetLibrary_obj::__register();
 ::openfl::_v2::AssetLibrary_obj::__register();
 ::Date_obj::__register();
@@ -371,9 +379,12 @@ hx::RegisterResources( hx::GetResources() );
 ::Date_obj::__boot();
 ::openfl::_v2::AssetLibrary_obj::__boot();
 ::DefaultAssetLibrary_obj::__boot();
+::Scene_obj::__boot();
+::GameScene_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
 ::IMap_obj::__boot();
+::MenuScene_obj::__boot();
 ::Paddle_obj::__boot();
 ::Reflect_obj::__boot();
 ::StringBuf_obj::__boot();
@@ -503,6 +514,7 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::system::ApplicationDomain_obj::__boot();
 ::openfl::system::LoaderContext_obj::__boot();
 ::openfl::system::SecurityDomain_obj::__boot();
+::openfl::utils::Dictionary_obj::__boot();
 ::openfl::utils::Endian_obj::__boot();
 ::sys::FileSystem_obj::__boot();
 ::sys::io::FileOutput_obj::__boot();

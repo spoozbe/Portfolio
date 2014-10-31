@@ -17,6 +17,9 @@
   <file name="src/openfl/utils/Endian.cpp">
    <depend name="include/openfl/utils/Endian.h"/>
   </file>
+  <file name="src/openfl/utils/Dictionary.cpp">
+   <depend name="include/openfl/utils/Dictionary.h"/>
+  </file>
   <file name="src/openfl/system/SecurityDomain.cpp">
    <depend name="include/openfl/system/SecurityDomain.h"/>
   </file>
@@ -918,6 +921,27 @@
    <depend name="include/openfl/_v2/events/KeyboardEvent.h"/>
    <depend name="include/openfl/_v2/geom/Rectangle.h"/>
   </file>
+  <file name="src/MenuScene.cpp">
+   <depend name="include/Game.h"/>
+   <depend name="include/GameObject.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/MenuScene.h"/>
+   <depend name="include/Scene.h"/>
+   <depend name="include/Vector2.h"/>
+   <depend name="include/openfl/_v2/Lib.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObject.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/_v2/display/InteractiveObject.h"/>
+   <depend name="include/openfl/_v2/display/MovieClip.h"/>
+   <depend name="include/openfl/_v2/display/Sprite.h"/>
+   <depend name="include/openfl/_v2/events/Event.h"/>
+   <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/MouseEvent.h"/>
+   <depend name="include/openfl/_v2/geom/Point.h"/>
+   <depend name="include/openfl/_v2/geom/Rectangle.h"/>
+  </file>
   <file name="src/IMap.cpp">
    <depend name="include/IMap.h"/>
   </file>
@@ -926,6 +950,38 @@
   </file>
   <file name="src/Lambda.cpp">
    <depend name="include/Lambda.h"/>
+  </file>
+  <file name="src/GameScene.cpp">
+   <depend name="include/Ball.h"/>
+   <depend name="include/Game.h"/>
+   <depend name="include/GameObject.h"/>
+   <depend name="include/GameScene.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/Paddle.h"/>
+   <depend name="include/Scene.h"/>
+   <depend name="include/Vector2.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObject.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/_v2/display/InteractiveObject.h"/>
+   <depend name="include/openfl/_v2/display/Sprite.h"/>
+   <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/_v2/geom/Rectangle.h"/>
+  </file>
+  <file name="src/Scene.cpp">
+   <depend name="include/Game.h"/>
+   <depend name="include/GameObject.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/Scene.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObject.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/_v2/display/InteractiveObject.h"/>
+   <depend name="include/openfl/_v2/display/Sprite.h"/>
+   <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
   </file>
   <file name="src/DefaultAssetLibrary.cpp">
    <depend name="include/Date.h"/>
@@ -1030,14 +1086,13 @@
    <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
   </file>
   <file name="src/Main.cpp">
-   <depend name="include/Ball.h"/>
    <depend name="include/Game.h"/>
-   <depend name="include/GameObject.h"/>
-   <depend name="include/List.h"/>
+   <depend name="include/GameScene.h"/>
+   <depend name="include/IMap.h"/>
    <depend name="include/Main.h"/>
-   <depend name="include/Paddle.h"/>
-   <depend name="include/Vector2.h"/>
-   <depend name="include/haxe/Log.h"/>
+   <depend name="include/MenuScene.h"/>
+   <depend name="include/Scene.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
    <depend name="include/openfl/_v2/display/DisplayObject.h"/>
    <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
@@ -1045,12 +1100,13 @@
    <depend name="include/openfl/_v2/display/Sprite.h"/>
    <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
    <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
-   <depend name="include/openfl/_v2/geom/Rectangle.h"/>
   </file>
   <file name="src/Game.cpp">
    <depend name="include/Game.h"/>
-   <depend name="include/GameObject.h"/>
-   <depend name="include/List.h"/>
+   <depend name="include/IMap.h"/>
+   <depend name="include/Scene.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
    <depend name="include/openfl/_v2/display/DisplayObject.h"/>
    <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/_v2/display/Graphics.h"/>

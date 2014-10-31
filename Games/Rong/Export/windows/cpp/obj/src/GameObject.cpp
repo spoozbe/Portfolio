@@ -51,32 +51,36 @@
 
 Void GameObject_obj::__construct(::Game game,::String img,::openfl::_v2::geom::Rectangle imgSize,::Vector2 pos)
 {
-HX_STACK_FRAME("GameObject","new",0xef0f99e3,"GameObject.new","GameObject.hx",15,0xe33972ed)
+HX_STACK_FRAME("GameObject","new",0xef0f99e3,"GameObject.new","GameObject.hx",16,0xe33972ed)
 HX_STACK_THIS(this)
 HX_STACK_ARG(game,"game")
 HX_STACK_ARG(img,"img")
 HX_STACK_ARG(imgSize,"imgSize")
 HX_STACK_ARG(pos,"pos")
 {
-	HX_STACK_LINE(16)
+	HX_STACK_LINE(17)
 	this->_game = game;
-	HX_STACK_LINE(17)
-	::openfl::_v2::display::BitmapData _g = ::openfl::_v2::Assets_obj::getBitmapData(img,null());		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(17)
-	::openfl::_v2::display::Tilesheet _g1 = ::openfl::_v2::display::Tilesheet_obj::__new(_g);		HX_STACK_VAR(_g1,"_g1");
-	HX_STACK_LINE(17)
-	this->texture = _g1;
 	HX_STACK_LINE(18)
-	this->texture->addTileRect(imgSize,null());
+	::openfl::_v2::display::BitmapData _g = ::openfl::_v2::Assets_obj::getBitmapData(img,null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(18)
+	::openfl::_v2::display::Tilesheet _g1 = ::openfl::_v2::display::Tilesheet_obj::__new(_g);		HX_STACK_VAR(_g1,"_g1");
+	HX_STACK_LINE(18)
+	this->texture = _g1;
 	HX_STACK_LINE(19)
+	this->texture->addTileRect(imgSize,null());
+	HX_STACK_LINE(20)
+	::openfl::_v2::geom::Rectangle _g2 = ::openfl::_v2::geom::Rectangle_obj::__new(pos->x,pos->y,imgSize->width,imgSize->height);		HX_STACK_VAR(_g2,"_g2");
+	HX_STACK_LINE(20)
+	this->rect = _g2;
+	HX_STACK_LINE(21)
 	if (((pos == null()))){
-		HX_STACK_LINE(21)
-		::Vector2 _g2 = ::Vector2_obj::__new((int)0,(int)0);		HX_STACK_VAR(_g2,"_g2");
-		HX_STACK_LINE(21)
-		this->pos = _g2;
+		HX_STACK_LINE(23)
+		::Vector2 _g3 = ::Vector2_obj::__new((int)0,(int)0);		HX_STACK_VAR(_g3,"_g3");
+		HX_STACK_LINE(23)
+		this->pos = _g3;
 	}
 	else{
-		HX_STACK_LINE(25)
+		HX_STACK_LINE(27)
 		this->pos = pos;
 	}
 }
@@ -99,12 +103,12 @@ Dynamic GameObject_obj::__Create(hx::DynamicArray inArgs)
 
 Void GameObject_obj::per_frame( int delta){
 {
-		HX_STACK_FRAME("GameObject","per_frame",0x3032e5ce,"GameObject.per_frame","GameObject.hx",30,0xe33972ed)
+		HX_STACK_FRAME("GameObject","per_frame",0x3032e5ce,"GameObject.per_frame","GameObject.hx",32,0xe33972ed)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(delta,"delta")
-		HX_STACK_LINE(31)
+		HX_STACK_LINE(33)
 		this->update(delta);
-		HX_STACK_LINE(32)
+		HX_STACK_LINE(34)
 		this->_draw();
 	}
 return null();
@@ -115,7 +119,7 @@ HX_DEFINE_DYNAMIC_FUNC1(GameObject_obj,per_frame,(void))
 
 Void GameObject_obj::update( int delta){
 {
-		HX_STACK_FRAME("GameObject","update",0x71a45066,"GameObject.update","GameObject.hx",36,0xe33972ed)
+		HX_STACK_FRAME("GameObject","update",0x71a45066,"GameObject.update","GameObject.hx",38,0xe33972ed)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(delta,"delta")
 	}
@@ -127,9 +131,9 @@ HX_DEFINE_DYNAMIC_FUNC1(GameObject_obj,update,(void))
 
 Void GameObject_obj::_draw( ){
 {
-		HX_STACK_FRAME("GameObject","_draw",0xe1e4b826,"GameObject._draw","GameObject.hx",42,0xe33972ed)
+		HX_STACK_FRAME("GameObject","_draw",0xe1e4b826,"GameObject._draw","GameObject.hx",44,0xe33972ed)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(42)
+		HX_STACK_LINE(44)
 		this->texture->drawTiles(this->_game->gameGraphics,Array_obj< Float >::__new().Add(this->pos->x).Add(this->pos->y).Add((int)0),null(),null(),null());
 	}
 return null();
@@ -149,6 +153,7 @@ void GameObject_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(_game,"_game");
 	HX_MARK_MEMBER_NAME(pos,"pos");
 	HX_MARK_MEMBER_NAME(texture,"texture");
+	HX_MARK_MEMBER_NAME(rect,"rect");
 	HX_MARK_END_CLASS();
 }
 
@@ -157,6 +162,7 @@ void GameObject_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(_game,"_game");
 	HX_VISIT_MEMBER_NAME(pos,"pos");
 	HX_VISIT_MEMBER_NAME(texture,"texture");
+	HX_VISIT_MEMBER_NAME(rect,"rect");
 }
 
 Dynamic GameObject_obj::__Field(const ::String &inName,bool inCallProp)
@@ -164,6 +170,9 @@ Dynamic GameObject_obj::__Field(const ::String &inName,bool inCallProp)
 	switch(inName.length) {
 	case 3:
 		if (HX_FIELD_EQ(inName,"pos") ) { return pos; }
+		break;
+	case 4:
+		if (HX_FIELD_EQ(inName,"rect") ) { return rect; }
 		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"_game") ) { return _game; }
@@ -187,6 +196,9 @@ Dynamic GameObject_obj::__SetField(const ::String &inName,const Dynamic &inValue
 	case 3:
 		if (HX_FIELD_EQ(inName,"pos") ) { pos=inValue.Cast< ::Vector2 >(); return inValue; }
 		break;
+	case 4:
+		if (HX_FIELD_EQ(inName,"rect") ) { rect=inValue.Cast< ::openfl::_v2::geom::Rectangle >(); return inValue; }
+		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"_game") ) { _game=inValue.Cast< ::Game >(); return inValue; }
 		break;
@@ -201,6 +213,7 @@ void GameObject_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("_game"));
 	outFields->push(HX_CSTRING("pos"));
 	outFields->push(HX_CSTRING("texture"));
+	outFields->push(HX_CSTRING("rect"));
 	super::__GetFields(outFields);
 };
 
@@ -212,6 +225,7 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*::Game*/ ,(int)offsetof(GameObject_obj,_game),HX_CSTRING("_game")},
 	{hx::fsObject /*::Vector2*/ ,(int)offsetof(GameObject_obj,pos),HX_CSTRING("pos")},
 	{hx::fsObject /*::openfl::_v2::display::Tilesheet*/ ,(int)offsetof(GameObject_obj,texture),HX_CSTRING("texture")},
+	{hx::fsObject /*::openfl::_v2::geom::Rectangle*/ ,(int)offsetof(GameObject_obj,rect),HX_CSTRING("rect")},
 	{ hx::fsUnknown, 0, null()}
 };
 #endif
@@ -220,6 +234,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("_game"),
 	HX_CSTRING("pos"),
 	HX_CSTRING("texture"),
+	HX_CSTRING("rect"),
 	HX_CSTRING("per_frame"),
 	HX_CSTRING("update"),
 	HX_CSTRING("_draw"),

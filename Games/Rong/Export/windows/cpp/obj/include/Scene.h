@@ -45,6 +45,12 @@ class HXCPP_CLASS_ATTRIBUTES  Scene_obj : public hx::Object{
 		virtual Void per_frame( int delta);
 		Dynamic per_frame_dyn();
 
+		virtual Void swapTo( );
+		Dynamic swapTo_dyn();
+
+		virtual Void swapAway( );
+		Dynamic swapAway_dyn();
+
 };
 
 

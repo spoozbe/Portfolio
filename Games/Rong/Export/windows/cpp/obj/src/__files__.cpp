@@ -40,8 +40,11 @@ const char *__hxcpp_all_files[] = {
 "DefaultAssetLibrary.hx",
 "Game.hx",
 "GameObject.hx",
+"GameScene.hx",
 "Main.hx",
+"MenuScene.hx",
 "Paddle.hx",
+"Scene.hx",
 "Vector2.hx",
 "haxe/Timer.hx",
 "openfl/_v2/Assets.hx",
@@ -122,6 +125,7 @@ const char *__hxcpp_all_files[] = {
 "openfl/system/ApplicationDomain.hx",
 "openfl/system/LoaderContext.hx",
 "openfl/system/SecurityDomain.hx",
+"openfl/utils/Dictionary.hx",
 #endif
  0 };
 
@@ -164,8 +168,11 @@ const char *__hxcpp_all_files_fullpath[] = {
 "D:\\Projects\\Path of the Undefeated\\Rong\\Export\\windows\\cpp\\haxe\\DefaultAssetLibrary.hx",
 "D:\\Projects\\Path of the Undefeated\\Rong\\Source\\Game.hx",
 "D:\\Projects\\Path of the Undefeated\\Rong\\Source\\GameObject.hx",
+"D:\\Projects\\Path of the Undefeated\\Rong\\Source\\GameScene.hx",
 "D:\\Projects\\Path of the Undefeated\\Rong\\Source\\Main.hx",
+"D:\\Projects\\Path of the Undefeated\\Rong\\Source\\MenuScene.hx",
 "D:\\Projects\\Path of the Undefeated\\Rong\\Source\\Paddle.hx",
+"D:\\Projects\\Path of the Undefeated\\Rong\\Source\\Scene.hx",
 "D:\\Projects\\Path of the Undefeated\\Rong\\Source\\Vector2.hx",
 "C:\\Haxe\\haxe\\openfl\\2,1,2\\haxe\\Timer.hx",
 "C:\\Haxe\\haxe\\openfl\\2,1,2\\openfl\\_v2\\Assets.hx",
@@ -246,6 +253,7 @@ const char *__hxcpp_all_files_fullpath[] = {
 "C:\\Haxe\\haxe\\openfl\\2,1,2\\openfl\\system\\ApplicationDomain.hx",
 "C:\\Haxe\\haxe\\openfl\\2,1,2\\openfl\\system\\LoaderContext.hx",
 "C:\\Haxe\\haxe\\openfl\\2,1,2\\openfl\\system\\SecurityDomain.hx",
+"C:\\Haxe\\haxe\\openfl\\2,1,2\\openfl\\utils\\Dictionary.hx",
 #endif
  0 };
 
@@ -275,8 +283,11 @@ const char *__hxcpp_all_classes[] = {
 "Date",
 "openfl._v2.AssetLibrary",
 "DefaultAssetLibrary",
+"Scene",
+"GameScene",
 "Lambda",
 "List",
+"MenuScene",
 "Paddle",
 "Reflect",
 "StringBuf",
@@ -381,6 +392,7 @@ const char *__hxcpp_all_classes[] = {
 "openfl.system.ApplicationDomain",
 "openfl.system.LoaderContext",
 "openfl.system.SecurityDomain",
+"openfl.utils.Dictionary",
 "openfl.utils.Endian",
 "sys.FileSystem",
 "sys.io.FileOutput",

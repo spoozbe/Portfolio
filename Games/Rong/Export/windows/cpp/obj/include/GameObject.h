@@ -44,6 +44,7 @@ class HXCPP_CLASS_ATTRIBUTES  GameObject_obj : public hx::Object{
 		::Game _game;
 		::Vector2 pos;
 		::openfl::_v2::display::Tilesheet texture;
+		::openfl::_v2::geom::Rectangle rect;
 		virtual Void per_frame( int delta);
 		Dynamic per_frame_dyn();
 

@@ -86,6 +86,28 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC1(Scene_obj,per_frame,(void))
 
+Void Scene_obj::swapTo( ){
+{
+		HX_STACK_FRAME("Scene","swapTo",0x721f49f0,"Scene.swapTo","Scene.hx",34,0x9b2cfd12)
+		HX_STACK_THIS(this)
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(Scene_obj,swapTo,(void))
+
+Void Scene_obj::swapAway( ){
+{
+		HX_STACK_FRAME("Scene","swapAway",0xa370ff23,"Scene.swapAway","Scene.hx",39,0x9b2cfd12)
+		HX_STACK_THIS(this)
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(Scene_obj,swapAway,(void))
+
 
 Scene_obj::Scene_obj()
 {
@@ -114,8 +136,14 @@ Dynamic Scene_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"game") ) { return game; }
 		if (HX_FIELD_EQ(inName,"name") ) { return name; }
 		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"swapTo") ) { return swapTo_dyn(); }
+		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"objects") ) { return objects; }
+		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"swapAway") ) { return swapAway_dyn(); }
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"per_frame") ) { return per_frame_dyn(); }
@@ -161,6 +189,8 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("name"),
 	HX_CSTRING("objects"),
 	HX_CSTRING("per_frame"),
+	HX_CSTRING("swapTo"),
+	HX_CSTRING("swapAway"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

@@ -10,12 +10,14 @@ class GameObject
 	private var _game : Game; //reference to game, manditory
 	public var pos : Vector2;
 	public var texture : Tilesheet; // improve usage in future
+	public var rect : Rectangle;
 
-	public function new(game : Game, img : String, imgSize : Rectangle, ?pos : Vector2)
+	public function new(game : Game, img : String, imgSize : Rectangle, pos : Vector2)
 	{
 		this._game = game;
 		this.texture = new Tilesheet(Assets.getBitmapData(img));
 		texture.addTileRect(imgSize);
+		rect = new Rectangle(pos.x, pos.y, imgSize.width, imgSize.height);
 		if(pos == null)
 		{
 			this.pos = new Vector2(0, 0);

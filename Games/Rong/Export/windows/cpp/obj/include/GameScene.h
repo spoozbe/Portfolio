@@ -44,6 +44,10 @@ class HXCPP_CLASS_ATTRIBUTES  GameScene_obj : public ::Scene_obj{
 
 		::GameObject background;
 		::Ball ball;
+		virtual Void swapTo( );
+
+		virtual Void swapAway( );
+
 };
 
 

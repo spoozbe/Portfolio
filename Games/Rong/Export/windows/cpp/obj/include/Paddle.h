@@ -19,7 +19,6 @@ HX_DECLARE_CLASS3(openfl,_v2,events,Event)
 HX_DECLARE_CLASS3(openfl,_v2,events,EventDispatcher)
 HX_DECLARE_CLASS3(openfl,_v2,events,IEventDispatcher)
 HX_DECLARE_CLASS3(openfl,_v2,events,KeyboardEvent)
-HX_DECLARE_CLASS3(openfl,_v2,geom,Rectangle)
 
 
 class HXCPP_CLASS_ATTRIBUTES  Paddle_obj : public ::GameObject_obj{
@@ -48,7 +47,6 @@ class HXCPP_CLASS_ATTRIBUTES  Paddle_obj : public ::GameObject_obj{
 		int keyState;
 		bool isAI;
 		Float velocity;
-		::openfl::_v2::geom::Rectangle rect;
 		virtual Void update( int delta);
 
 		virtual Void playerControlDown( ::openfl::_v2::events::KeyboardEvent e);

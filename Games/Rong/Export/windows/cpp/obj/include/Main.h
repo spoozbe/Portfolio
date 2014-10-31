@@ -6,10 +6,11 @@
 #endif
 
 #include <Game.h>
-HX_DECLARE_CLASS0(Ball)
 HX_DECLARE_CLASS0(Game)
-HX_DECLARE_CLASS0(GameObject)
+HX_DECLARE_CLASS0(GameScene)
 HX_DECLARE_CLASS0(Main)
+HX_DECLARE_CLASS0(MenuScene)
+HX_DECLARE_CLASS0(Scene)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObject)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObjectContainer)
 HX_DECLARE_CLASS3(openfl,_v2,display,IBitmapDrawable)
@@ -41,8 +42,8 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::Game_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Main"); }
 
-		::GameObject background;
-		::Ball ball;
+		::GameScene gameScene;
+		::MenuScene menuScene;
 };
 
 

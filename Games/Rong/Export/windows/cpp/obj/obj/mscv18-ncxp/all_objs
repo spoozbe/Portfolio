@@ -1,6 +1,7 @@
 obj/mscv18-ncxp/de19829f_FileOutput.obj
 obj/mscv18-ncxp/4367fff0_FileSystem.obj
 obj/mscv18-ncxp/b8017b47_Endian.obj
+obj/mscv18-ncxp/b8017b47_Dictionary.obj
 obj/mscv18-ncxp/12ffd736_SecurityDomain.obj
 obj/mscv18-ncxp/12ffd736_LoaderContext.obj
 obj/mscv18-ncxp/12ffd736_ApplicationDomain.obj
@@ -135,9 +136,12 @@ obj/mscv18-ncxp/57588eaa_StringTools.obj
 obj/mscv18-ncxp/57588eaa_StringBuf.obj
 obj/mscv18-ncxp/57588eaa_Reflect.obj
 obj/mscv18-ncxp/57588eaa_Paddle.obj
+obj/mscv18-ncxp/57588eaa_MenuScene.obj
 obj/mscv18-ncxp/57588eaa_IMap.obj
 obj/mscv18-ncxp/57588eaa_List.obj
 obj/mscv18-ncxp/57588eaa_Lambda.obj
+obj/mscv18-ncxp/57588eaa_GameScene.obj
+obj/mscv18-ncxp/57588eaa_Scene.obj
 obj/mscv18-ncxp/57588eaa_DefaultAssetLibrary.obj
 obj/mscv18-ncxp/82ea9a66_AssetLibrary.obj
 obj/mscv18-ncxp/57588eaa_Date.obj

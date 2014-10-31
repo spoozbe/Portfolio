@@ -17,27 +17,25 @@ class Paddle extends GameObject
 	public var keyState : Int;
 	var isAI : Bool;
 	var velocity : Float = 3;
-	var rect : Rectangle;
 	public function new(game : Game, ball : Ball, isAI : Bool = false)
 	//public function new(game : Game, isAI : Bool = false) 
 	{	
+		this.ball = ball;
 		if (isAI)
 		{
 			this.isAI = isAI;
-			//super(game), 
+			super(game, "assets/paddle.png", new Rectangle(0, 0, 10, 50),  new Vector2(790, 0));
 		}
-		this.ball = ball;
 		
 
-		//else
-		//{
-		super(game, "assets/paddle.png", new Rectangle(0, 0, 10, 50),  new Vector2(0, 0));
-		keyState = 0;
-		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControlDown);
-		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, playerControlUp);
-	//	}
+		else
+		{
+			super(game, "assets/paddle.png", new Rectangle(0, 0, 10, 50),  new Vector2(0, 0));
+			keyState = 0;
+			Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, playerControlDown);
+			Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, playerControlUp);
+		}
 		
-		rect = new Rectangle(pos.x, pos.y, 10, 50);
 		
 	}
 	
@@ -46,21 +44,33 @@ class Paddle extends GameObject
 		super.update(delta);
 
 		if (isAI)
-		{}
+		{
+			//impossible, but w/e
+			if (ball.velocity.x > 0)
+			{
+				if (ball.velocity.y > 0)
+					pos.y += velocity;
+				
+				else
+					pos.y -= velocity;
+			}
+				
+		}
 		else //player control
 		{
 			pos.y += (velocity * keyState);
-			//upper and lower bounds
-			if (pos.y < 10)
-			{
-				pos.y = 10;
-			}
-			if (pos.y > 340)
-			{
-				pos.y = 340;
-			}
-			rect.y = pos.y;
 		}
+		
+		//upper and lower bounds
+		if (pos.y < 10)
+		{
+			pos.y = 10;
+		}
+		if (pos.y > 340)
+		{
+				pos.y = 340;
+		}
+		rect.y = pos.y;
 		
 		//ball collision
 		

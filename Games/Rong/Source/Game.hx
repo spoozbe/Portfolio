@@ -4,6 +4,7 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.TimerEvent;
 import flash.display.Graphics;
+import openfl.utils.Dictionary;
 
 import openfl.Lib;
 //import openfl.display.Graphics;
@@ -14,6 +15,7 @@ import openfl.display.Tilesheet;
 /*
 	TODO: 
 	Animations
+	EAT CORNDOGS!
 */
 
 class Game extends Sprite
@@ -21,7 +23,10 @@ class Game extends Sprite
 	private var _fixedTimer : Timer;
 	public var gameGraphics : Graphics;
 
-	public var objects : List<GameObject>;
+	//public var objects : List<GameObject>;
+	//archive of scenes, and one active one
+	public var scenes : Map<String, Scene>;
+	public var activeScene : Scene;
 	
 	//delta handling
 	var delta : Int;
@@ -32,13 +37,14 @@ class Game extends Sprite
 	public function new()
 	{
 		super();
-		addEventListener(Event.ENTER_FRAME, this._update);
+		addEventListener(Event.ENTER_FRAME, this.update);
 		gameGraphics = graphics;
-		objects = new List<GameObject>();
+		//objects = new List<GameObject>();
+		scenes = new Map<String, Scene>();
 	}
 
 
-	public function _update(e : Event) : Void
+	public function update(e : Event) : Void
 	{
 		/*
 		var temp = delta;
@@ -47,10 +53,26 @@ class Game extends Sprite
 		*/
 		//update game logic
 		gameGraphics.clear();
-		for(ob in objects)
+		activeScene.per_frame(0);
+		/*
+		for(ob in scenes)
 		{
+			//ob.per_frame(0);
 			ob.per_frame(0);
 		}
+		*/
+	}
+	
+	public function swapScene(name : String) : Void
+	{
+		if (scenes.exists(name))
+		{
+			activeScene.swapAway();
+			activeScene = scenes.get(name);
+			activeScene.swapTo();
+		}
+		else
+			trace("Scene does not exist");
 	}
 
 	/*

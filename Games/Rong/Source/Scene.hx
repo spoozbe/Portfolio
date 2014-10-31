@@ -30,7 +30,15 @@ class Scene
 		}
 	}
 	
+	public function swapTo() : Void
+	{
+		
+	}
 	
+	public function swapAway() : Void
+	{
+		
+	}
 	
 	/*
 	public function fixedUpdate(fixedDelta : Float) : Void
@@ -39,20 +47,5 @@ class Scene
 	}
 	*/
 	
-	
-	//utility functions
-	/*
-	private bool _active : Bool = false;
-	public function toggleActive() : Void
-	{
-		_active = !_active;
-	}
-
-	private bool _visible : Bool = false;
-	public function toggleVisible() : Void
-	{
-		_visible = !_visible;
-	}
-	*/
 	
 }

@@ -52,8 +52,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ball.png", AssetType.IMAGE);
 		path.set ("assets/blue.png", "assets/blue.png");
 		type.set ("assets/blue.png", AssetType.IMAGE);
+		path.set ("assets/difficulty.png", "assets/difficulty.png");
+		type.set ("assets/difficulty.png", AssetType.IMAGE);
+		path.set ("assets/ktg.png", "assets/ktg.png");
+		type.set ("assets/ktg.png", AssetType.IMAGE);
+		path.set ("assets/madeby.png", "assets/madeby.png");
+		type.set ("assets/madeby.png", AssetType.IMAGE);
+		path.set ("assets/openfl.png", "assets/openfl.png");
+		type.set ("assets/openfl.png", AssetType.IMAGE);
 		path.set ("assets/paddle.png", "assets/paddle.png");
 		type.set ("assets/paddle.png", AssetType.IMAGE);
+		path.set ("assets/title.png", "assets/title.png");
+		type.set ("assets/title.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
@@ -68,7 +78,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/blue.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/difficulty.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ktg.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/madeby.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/openfl.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/paddle.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/title.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		
@@ -78,6 +103,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -705,7 +735,17 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
 #elseif html5
+
+
+
+
+
 
 
 
