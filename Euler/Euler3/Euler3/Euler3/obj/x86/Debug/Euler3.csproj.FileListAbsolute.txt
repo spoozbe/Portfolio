@@ -1,0 +1,9 @@
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler3\bin\Debug\Euler3.exe
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler3\bin\Debug\Euler3.pdb
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler3\obj\x86\Debug\Euler3.exe
+C:\Users\Shinobi\AppData\Local\Temporary Projects\Euler3\obj\x86\Debug\Euler3.pdb
+D:\Projects\Euler\Euler3\Euler3\Euler3\obj\x86\Debug\Euler3.exe
+D:\Projects\Euler\Euler3\Euler3\Euler3\obj\x86\Debug\Euler3.pdb
+D:\Projects\Euler\Euler3\Euler3\Euler3\bin\Debug\Euler3.exe
+D:\Projects\Euler\Euler3\Euler3\Euler3\bin\Debug\Euler3.pdb
+D:\Projects\Euler\Euler3\Euler3\Euler3\obj\x86\Debug\Euler3.csprojResolveAssemblyReference.cache
